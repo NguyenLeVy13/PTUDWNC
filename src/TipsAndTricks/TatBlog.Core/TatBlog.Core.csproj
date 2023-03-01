@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Collections\" />
     <Folder Include="Constants\" />
     <Folder Include="Settings\" />
   </ItemGroup>
