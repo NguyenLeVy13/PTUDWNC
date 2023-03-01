@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TatBlog.Core.Entities;
+
+namespace TatBlog.Services.Blogs;
+
+public interface IBlogRepository
+{
+    //Tìm bài viết có tên định danh là 'slug'
+    //và dc đăng vào tháng 'month' năm 'year'
+
+    Task<Post> GetPostAsync(
+        int year,
+        int month,
+        string slug,
+        CancellationToken cancellationToken = default);
+
+    //Tìm Top N bài viết phổ dc nhiều ng xem nhất
+    Task<IList<Post>> GetPopulerArticlesAsync(
+        int numPosts,
+        CancellationToken cancellationToken = default);
+
+    //Kiểm tra xem tên định danh của bài viết đã có hay ch?
+    Task<bool> IsPostSlugExistedAsync(
+       int postId, string slug,
+       CancellationToken cancellationToken = default);
+
+    //Tăng số lượt xem của 1 bài viết
+    Task IncreaseViewCountAsync(
+       int postId,
+       CancellationToken cancellationToken = default);
+}
