@@ -89,7 +89,7 @@ var context = new BlogDbContext();
 
 IBlogRepository blogRepo = new BlogRepository(context);
 
-var posts1 = await blogRepo.GetPopulerArticlesAsync(3);
+/*var posts1 = await blogRepo.GetPopulerArticlesAsync(3);
 
 foreach (var post in posts1)
 {
@@ -100,4 +100,14 @@ foreach (var post in posts1)
     Console.WriteLine("Author  : {0}", post.Author.FullName);
     Console.WriteLine("Category: {0}", post.Category.Name);
     Console.WriteLine("".PadRight(80, '-'));
+}*/
+
+var categories = await blogRepo.GetCategoriesAsync();
+Console.WriteLine("{0,5}{1,-50}{2,10}",
+    "ID", "Name", "Count");
+
+foreach (var item in categories)
+{
+    Console.WriteLine("{0,-5}{1,-50}{2,10}",
+        item.Id, item.Name, item.PostCount);
 }
