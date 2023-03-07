@@ -3,14 +3,15 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["PageTitle"] - Tip & Tricks Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scaled .0" />
+    <title>@ViewData["PageTitle"] - Tips & Tricks Blog</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 
-    @await RenderSectionAsync("styles",required: false)
+
+    @await RenderSectionAsync("styles", required: false)
 </head>
 <body>
     <!-- Thanh tiêu đề, logo, menu -->
@@ -23,14 +24,14 @@
                 @RenderBody()
             </div>
             <div class="col-3 border-start">
-                <!-- Danh sách chuyên mục, tag cloud, ... -->
-                <partial name="_SideBar"/>
+                <!-- Danh sách chuyên mục, tag cloud,... -->
+                <partial name="_SiderBar" />
             </div>
         </div>
     </div>
 
     <footer class="border-top footer text-muted">
-        <div>
+        <div class="container-fluid text-center">
             &copy; 2023 - Tips & Tricks Blog
         </div>
     </footer>
@@ -39,6 +40,8 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/main.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("styles",required: false)
+
+    @await RenderSectionAsync("scripts", required: false)
+
 </body>
 </html>
