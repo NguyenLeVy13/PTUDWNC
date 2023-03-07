@@ -4,11 +4,41 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewData["PageTitle"] - Tip & Tricks Blog</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("styles",required: false)
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <!-- Thanh tiêu đề, logo, menu -->
+    <partial name="_Header" />
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <!-- Phần nội dung chính -->
+                @RenderBody()
+            </div>
+            <div class="col-3 border-start">
+                <!-- Danh sách chuyên mục, tag cloud, ... -->
+                <partial name="_SideBar"/>
+            </div>
+        </div>
     </div>
+
+    <footer class="border-top footer text-muted">
+        <div>
+            &copy; 2023 - Tips & Tricks Blog
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("styles",required: false)
 </body>
 </html>
