@@ -38,8 +38,20 @@ public interface IBlogRepository
     Task<IList<CategoryItem>> GetCategoriesAsync(
          bool showOnMenu = false,
          CancellationToken cancellationToken = default);
+  
     Task<IPagedList<TagItem>> GetPageTagsAsync(
         IPagingParams pagingParams,
         CancellationToken cancellationToken = default);
+   
+    Task<IPagedList<Post>> GetPagedPostQueryAsync(
+            PostQuery postQuery,
+            int pageNumber = 1,
+            int pageSize = 10,
+            CancellationToken cancellationToken = default);
+
+    Task<IPagedList<T>> GetPagedPostsAsync<T>(
+        PostQuery condition,
+        IPagingParams pagingParams,
+        Func<IQueryable<Post>, IQueryable<T>> mapper);
 }
 
