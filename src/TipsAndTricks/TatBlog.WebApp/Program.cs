@@ -44,4 +44,10 @@ var app = builder.Build();
         pattern: "{controller=Blog}/{action=Index}/{id?}");
 }
 
+//Thêm dữ liệu mẫu vào CSDL
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<IDataSeeder>();
+}
+
 app.Run();
