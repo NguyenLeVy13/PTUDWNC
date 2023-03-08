@@ -24,6 +24,10 @@ namespace TatBlog.Data.Contexts
         { 
         }
 
+        public BlogDbContext()
+        {
+        }
+
         /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Bạn phải thay đổi chuỗi kết nối cho phù hợp
