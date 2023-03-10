@@ -28,11 +28,11 @@ namespace TatBlog.Data.Contexts
         {
         }
 
-        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Bạn phải thay đổi chuỗi kết nối cho phù hợp
             optionsBuilder.UseSqlServer(@"Data Source=LEVI\NUNG;Initial Catalog=TatBlog;Integrated Security=True;TrustServerCertificate=true;MultipleActiveResultSets=true;");
-        }*/
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
