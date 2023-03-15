@@ -14,8 +14,8 @@ namespace TatBlog.WebApp.Extensions
             this IEndpointRouteBuilder endpoints)
         {
             endpoints.MapControllerRoute(
-               name: "posts-by-author",
-               pattern: "blog/author/{slug}",
+               name: "posts-by-Author",
+               pattern: "blog/Author/{slug}",
                defaults: new { controller = "Blog", action = "Author" });
 
             endpoints.MapControllerRoute(
@@ -34,10 +34,16 @@ namespace TatBlog.WebApp.Extensions
                 defaults: new { controller = "Blog", action = "Post" });
 
             endpoints.MapControllerRoute(
+               name: "admin-area",
+               pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
+               defaults: new { area = "AdminArea" });
+
+            endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Blog}/{action=Index}/{id?}");
 
             return endpoints;
-        }  
+         
+        } 
     }
 }

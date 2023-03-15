@@ -11,6 +11,7 @@ using TatBlog.Data.Contexts;
 using TatBlog.Services.Blogs;
 using TatBlog.Services.Extensions;
 
+
 namespace TatBlog.Services.Blogs;
 
 public class BlogRepository : IBlogRepository
@@ -150,6 +151,56 @@ public class BlogRepository : IBlogRepository
             cancellationToken);
     }
 
+    public async Task<IList<AuthorItem>> GetAuthorsAsync(
+
+    CancellationToken cancellationToken = default)
+    {
+        IQueryable<Author> authors = _context.Set<Author>();
+
+
+        return await authors
+            .OrderBy(x => x.FullName)
+            .Select(x => new AuthorItem()
+            {
+                Id = x.Id,
+                FullName = x.FullName,
+                UrlSlug = x.UrlSlug,
+                Email = x.Email,
+                JoinedDate = x.JoinedDate,
+                ImageUrl = x.ImageUrl,
+                Notes = x.Notes,
+                PostCount = x.Posts.Count(p => p.Published),
+            })
+            .ToListAsync(cancellationToken);
+    }
+    public async Task<IPagedList<Post>> GetPagedPostsAsync(
+        PostQuery condition,
+        int pageNumber = 1,
+        int pageSize = 10,
+        CancellationToken cancellationToken = default)
+    {
+        return await FilterPosts(condition).ToPagedListAsync(
+            pageNumber, pageSize,
+            nameof(Post.PostedDate), "DESC",
+            cancellationToken);
+    }
+
+    public async Task<Post> GetPostByIdAsync(
+        int postId, bool includeDetails = false,
+        CancellationToken cancellationToken = default)
+    {
+        if (!includeDetails)
+        {
+            return await _context.Set<Post>().FindAsync(postId);
+        }
+
+        return await _context.Set<Post>()
+            .Include(x => x.Category)
+            .Include(x => x.Author)
+            .Include(x => x.Tags)
+            .FirstOrDefaultAsync(x => x.Id == postId, cancellationToken);
+    }
+
     private IQueryable<Post> FilterPosts(PostQuery condition)
     {
         IQueryable<Post> posts = _context.Set<Post>()
@@ -219,6 +270,9 @@ public class BlogRepository : IBlogRepository
         return posts;
     }
 
-    
+    public Task CreateOrUpdatePostAsync(Post post, List<string> list)
+    {
+        throw new NotImplementedException();
+    }
 }
     
