@@ -11,6 +11,7 @@ using TatBlog.Data.Contexts;
 using TatBlog.Services.Blogs;
 using TatBlog.Services.Extensions;
 
+
 namespace TatBlog.Services.Blogs;
 
 public class BlogRepository : IBlogRepository
@@ -139,6 +140,40 @@ public class BlogRepository : IBlogRepository
 
 
     public async Task<IPagedList<Post>> GetPagedPostQueryAsync(
+        PostQuery condition,
+        int pageNumber = 1,
+        int pageSize = 10,
+        CancellationToken cancellationToken = default)
+    {
+        return await FilterPosts(condition).ToPagedListAsync(
+            pageNumber, pageSize,
+            nameof(Post.PostedDate), "DESC",
+            cancellationToken);
+    }
+
+    public async Task<IList<AuthorItem>> GetAuthorsAsync(
+
+    CancellationToken cancellationToken = default)
+    {
+        IQueryable<Author> authors = _context.Set<Author>();
+
+
+        return await authors
+            .OrderBy(x => x.FullName)
+            .Select(x => new AuthorItem()
+            {
+                Id = x.Id,
+                FullName = x.FullName,
+                UrlSlug = x.UrlSlug,
+                Email = x.Email,
+                JoinedDate = x.JoinedDate,
+                ImageUrl = x.ImageUrl,
+                Notes = x.Notes,
+                PostCount = x.Posts.Count(p => p.Published),
+            })
+            .ToListAsync(cancellationToken);
+    }
+    public async Task<IPagedList<Post>> GetPagedPostsAsync(
         PostQuery condition,
         int pageNumber = 1,
         int pageSize = 10,
