@@ -32,7 +32,7 @@ public class PostFilterModel
             {
                 Value = m.ToString(),
                 Text = CultureInfo.CurrentCulture
-                .DateTimeFormat.GetMonthName(m)
+                    .DateTimeFormat.GetMonthName(m)
             })
             .ToList();
     }

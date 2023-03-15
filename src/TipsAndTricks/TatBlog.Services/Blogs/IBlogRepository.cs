@@ -61,5 +61,9 @@ public interface IBlogRepository
         int pageNumber = 1,
         int pageSize = 10,
         CancellationToken cancellationToken = default);
+    Task<Post> GetPostByIdAsync(
+        int postId, bool includeDetails = false,
+        CancellationToken cancellationToken = default);
+    Task CreateOrUpdatePostAsync(Post post, List<string> list);
 }
 

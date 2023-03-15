@@ -185,6 +185,22 @@ public class BlogRepository : IBlogRepository
             cancellationToken);
     }
 
+    public async Task<Post> GetPostByIdAsync(
+        int postId, bool includeDetails = false,
+        CancellationToken cancellationToken = default)
+    {
+        if (!includeDetails)
+        {
+            return await _context.Set<Post>().FindAsync(postId);
+        }
+
+        return await _context.Set<Post>()
+            .Include(x => x.Category)
+            .Include(x => x.Author)
+            .Include(x => x.Tags)
+            .FirstOrDefaultAsync(x => x.Id == postId, cancellationToken);
+    }
+
     private IQueryable<Post> FilterPosts(PostQuery condition)
     {
         IQueryable<Post> posts = _context.Set<Post>()
@@ -254,6 +270,9 @@ public class BlogRepository : IBlogRepository
         return posts;
     }
 
-    
+    public Task CreateOrUpdatePostAsync(Post post, List<string> list)
+    {
+        throw new NotImplementedException();
+    }
 }
     
