@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MapsterMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TatBlog.Core.DTO;
 using TatBlog.Services.Blogs;
@@ -9,9 +10,14 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
     public class PostsController : Controller
     {
         private readonly IBlogRepository _blogRepository;
-        public PostsController(IBlogRepository blogRepository) 
+        private readonly IMapper _mapper;
+
+        public PostsController(
+            IBlogRepository blogRepository,
+            IMapper mapper) 
         {
             _blogRepository = blogRepository;
+            _mapper = mapper;
         }
 
         private async Task PopulatePostFileterModelAsync(PostFilterModel model)
