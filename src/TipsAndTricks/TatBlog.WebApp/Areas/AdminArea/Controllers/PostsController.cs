@@ -1,9 +1,13 @@
-﻿using MapsterMapper;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualBasic;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 using TatBlog.Services.Blogs;
+using TatBlog.Services.Media;
 using TatBlog.WebApp.Areas.AdminArea.Models;
 
 namespace TatBlog.WebApp.Areas.AdminArea.Controllers
@@ -11,13 +15,16 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
     public class PostsController : Controller
     {
         private readonly IBlogRepository _blogRepository;
+        private readonly IMediaManager _mediaManager;
         private readonly IMapper _mapper;
 
         public PostsController(
             IBlogRepository blogRepository,
+            IMediaManager mediaManager,
             IMapper mapper) 
         {
             _blogRepository = blogRepository;
+            _mediaManager = mediaManager;
             _mapper = mapper;
         }
 
@@ -97,8 +104,17 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(PostEditModel model)
+        public async Task<IActionResult> Edit(
+            IValidator<PostEditModel> postValidator,
+            PostEditModel model)
         {
+            var validationResult = await postValidator.ValidateAsync(model);
+
+            if (validationResult.IsValid)
+            {
+                validationResult.AddToModelState(ModelState);
+            }
+
             if (!ModelState.IsValid)
             {
                 await PopulatePostEditModelAsync(model);
@@ -124,8 +140,25 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
                 post.ModifiedDate = DateTime.Now;
             }
 
+            //Nếu người dùng có upload hình ảnh minh họa cho bài viết
+            if (model.ImageFile?.Length > 0)
+            {
+                //Thì thực hiện lưu tập tin vào thư mục uploads
+                var newImagePath = await _mediaManager.SaveFileAsync(
+                    model.ImageFile.OpenReadStream(),
+                    model.ImageFile.FileName,
+                    model.ImageFile.ContentType);
+
+                //Nếu lưu thành công, xóa tập tin hình ảnh cũ (nếu có)
+                if (!string.IsNullOrWhiteSpace(newImagePath))
+                {
+                    await _mediaManager.DeleteFileAsync(post.ImageUrl);
+                    post.ImageUrl = newImagePath;
+                }
+            }
+
             await _blogRepository.CreateOrUpdatePostAsync(
-                post, model.GetSelectedTags());
+               post, model.GetSelectedTags());
 
             return RedirectToAction(nameof(Index));
         }
