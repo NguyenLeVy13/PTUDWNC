@@ -4,6 +4,8 @@ using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
 using Microsoft.EntityFrameworkCore;
 using TatBlog.Services.Media;
+using NLog.Web;
+using TatBlog.WebApp.Middlewares;
 
 namespace TatBlog.WebApp.Extensions
 {
@@ -15,6 +17,16 @@ namespace TatBlog.WebApp.Extensions
         { 
             builder.Services.AddControllersWithViews();
             builder.Services.AddResponseCompression();
+
+            return builder;
+        }
+
+        //Cấu hình việc sd NLog
+        public static WebApplicationBuilder ConfigureNLog(
+            this WebApplicationBuilder builder)
+        {
+            builder.Logging.ClearProviders();
+            builder.Host.UseNLog();
 
             return builder;
         }
@@ -62,6 +74,9 @@ namespace TatBlog.WebApp.Extensions
             //Thêm middleware lựa chọn endpoint phù hợp nhất
             //để xử lý một HTTP request.
             app.UseRouting();
+
+            //Thêm middleware để lưu vết ng dùng
+            app.UseMiddleware<UserActivityMiddleware>();
 
             return app;
         }

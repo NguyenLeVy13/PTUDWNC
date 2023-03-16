@@ -14,7 +14,11 @@ public class PostValidator : AbstractValidator<PostEditModel>
 
         RuleFor(x => x.Title)
             .NotEmpty()
-            .MaximumLength(500);
+            .WithMessage("Bạn phải nhập tiêu đề")
+            .MaximumLength(500)
+            .WithMessage("Tiêu đề dài tối đa {MaxLength} kí tự")
+            .MinimumLength(3)
+            .WithMessage("Tiêu đề dài tối thiểu {MinLength} kí tự");
 
         RuleFor(x => x.ShortDescription)
             .NotEmpty();
@@ -38,15 +42,15 @@ public class PostValidator : AbstractValidator<PostEditModel>
 
         RuleFor(x => x.CategoryId)
             .NotEmpty()
-            .WithMessage("Bạn phải chọn chủ đề cho bài viết");
+            .WithMessage("Bạn phải chọn chủ đề cho bài viết!");
 
         RuleFor(x => x.AuthorId)
             .NotEmpty()
-            .WithMessage("Bạn phải chọn tác giả cho bài viết");
+            .WithMessage("Bạn phải chọn tác giả cho bài viết!");
 
         RuleFor(x => x.SelectedTags)
            .Must(HasAtLeastOneTag)
-           .WithMessage("Bạn phải nhập ít nhất một thẻ");
+           .WithMessage("Bạn phải nhập ít nhất một thẻ!");
 
         When(x => x.Id <= 0, () =>
         {

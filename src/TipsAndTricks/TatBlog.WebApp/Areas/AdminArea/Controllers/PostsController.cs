@@ -14,15 +14,18 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
 {
     public class PostsController : Controller
     {
+        private readonly ILogger<PostsController> _logger;
         private readonly IBlogRepository _blogRepository;
         private readonly IMediaManager _mediaManager;
         private readonly IMapper _mapper;
 
         public PostsController(
+            ILogger<PostsController> logger,
             IBlogRepository blogRepository,
             IMediaManager mediaManager,
             IMapper mapper) 
         {
+            _logger = logger;
             _blogRepository = blogRepository;
             _mediaManager = mediaManager;
             _mapper = mapper;
@@ -65,17 +68,18 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
         }
         public async Task<IActionResult> Index(PostFilterModel model)
         {
-            var postQuery = new PostQuery()
-            {
-                Keyword = model.Keyword,
-                CategoryId = model.CategoryId,
-                AuthorId = model.AuthorId,
-                Year = model.Year,
-                Month = model.Month,
-            };
+            _logger.LogInformation("Tạo điều kiện truy vấn");
+
+            //Sd Mapster để tạo đối tượng PostQuery
+            //từ đối tượng PostFilterModel model
+            var postQuery = _mapper.Map<PostQuery>(model);
+
+            _logger.LogInformation("Lấy danh sách bài viết từ CSDL");
 
             ViewBag.PostsList = await _blogRepository
                 .GetPagedPostsAsync(postQuery, 1, 10);
+
+            _logger.LogInformation("Chuẩn bị dữ liệu cho ViewModel");
 
             await PopulatePostFileterModelAsync(model);
 
@@ -105,12 +109,12 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Edit(
-            IValidator<PostEditModel> postValidator,
+            [FromServices] IValidator<PostEditModel> postValidator,
             PostEditModel model)
         {
             var validationResult = await postValidator.ValidateAsync(model);
 
-            if (validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
                 validationResult.AddToModelState(ModelState);
             }
