@@ -34,7 +34,8 @@ public class BlogRepository : IBlogRepository
     {
         IQueryable<Post> postsQuery = _context.Set<Post>()
              .Include(x => x.Category)
-             .Include(x => x.Author);
+             .Include(x => x.Author)
+             .Include(x => x.Tags);
 
         if (year > 0)
         {
@@ -319,6 +320,33 @@ public class BlogRepository : IBlogRepository
         return post;
     }
 
+    public async Task<Author> GetAuthorSlugAsync(
+        string slug,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Set<Author>()
+            .Where(a => a.UrlSlug == slug)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
+
+    public async Task<Category> GetCategorySlugAsync(
+        string slug,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Set<Category>()
+            .Where(t => t.UrlSlug == slug)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
+
+    public async Task<Tag> GetTagSlugAsync(
+        string slug,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Set<Tag>()
+            .Where(t => t.UrlSlug == slug)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
+
     public async Task<bool> TogglePublishedFlagAsync(
         int postId, CancellationToken cancellationToken = default)
     {
@@ -327,6 +355,9 @@ public class BlogRepository : IBlogRepository
         if (post is null) return false;
 
         post.Published = !post.Published;
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return post.Published;
         
     }
 

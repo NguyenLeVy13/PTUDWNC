@@ -40,6 +40,15 @@ namespace TatBlog.WebApp.Controllers
             return View(postsList);
         }
 
+        public async Task<IActionResult> Post(
+           string slug, int year, int month,
+           [FromQuery(Name = "p")] int pageNumber = 1,
+           [FromQuery(Name = "ps")] int pageSize = 10)
+        {
+            var post = await _blogRepository.GetPostAsync(year, month, slug);
+            return View(post);
+        }
+
         public IActionResult About()
             => View();
         public IActionResult Contact()
