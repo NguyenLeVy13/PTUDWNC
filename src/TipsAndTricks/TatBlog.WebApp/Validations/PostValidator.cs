@@ -14,7 +14,7 @@ public class PostValidator : AbstractValidator<PostEditModel>
 
         RuleFor(x => x.Title)
             .NotEmpty()
-            .WithMessage("Bạn phải nhập tiêu đề")
+            .WithMessage("Bạn phải nhập tiêu đề!")
             .MaximumLength(500)
             .WithMessage("Tiêu đề dài tối đa {MaxLength} kí tự")
             .MinimumLength(3)
@@ -56,14 +56,14 @@ public class PostValidator : AbstractValidator<PostEditModel>
         {
             RuleFor(x => x.ImageFile)
            .Must(x => x is { Length: > 0 })
-           .WithMessage("Bạn phải chọn hình ảnh cho bài viết");
+           .WithMessage("Bạn phải chọn hình ảnh cho bài viết!");
 
         })
         .Otherwise(() =>
         {
             RuleFor(x => x.ImageFile)
            .MustAsync(SetImageIfNotExist)
-           .WithMessage("Bạn phải chọn hình ảnh cho bài viết");
+           .WithMessage("Bạn phải chọn hình ảnh cho bài viết!");
         });
     }
 

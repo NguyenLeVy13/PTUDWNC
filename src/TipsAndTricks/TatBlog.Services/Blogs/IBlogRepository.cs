@@ -64,6 +64,12 @@ public interface IBlogRepository
     Task<Post> GetPostByIdAsync(
         int postId, bool includeDetails = false,
         CancellationToken cancellationToken = default);
-    Task CreateOrUpdatePostAsync(Post post, List<string> list);
+    Task CreateOrUpdatePostAsync(Post post, IEnumerable<string> list, CancellationToken cancellationToken = default);
+    Task<Tag> GetTagAsync(
+        string slug, CancellationToken cancellationToken = default);
+    Task<bool> TogglePublishedFlagAsync(
+        int postId, CancellationToken cancellationToken = default);
+    Task<bool> DeletePostAsync(
+        int postId, CancellationToken cancellationToken = default);
 }
 

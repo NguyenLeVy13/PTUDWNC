@@ -177,5 +177,17 @@ namespace TatBlog.WebApp.Areas.AdminArea.Controllers
                 ? Json($"Slug '{urlSlug}' đã được sử dụng")
                 : Json(true);
         }
+
+        public async Task<IActionResult> SwitchPulished(int id)
+        {
+            await _blogRepository.TogglePublishedFlagAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> DeletePost(int id)
+        {
+            await _blogRepository .DeletePostAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
