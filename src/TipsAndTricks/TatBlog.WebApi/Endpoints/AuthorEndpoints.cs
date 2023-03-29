@@ -8,6 +8,7 @@ using TatBlog.Core.Entities;
 using TatBlog.Services.Blogs;
 using TatBlog.Services.Media;
 using TatBlog.WebApi.Extensions;
+using TatBlog.WebApi.Filters;
 using TatBlog.WebApi.Models;
 
 namespace TatBlog.WebApi.Endpoints;
@@ -36,6 +37,7 @@ public static class AuthorEndpoints
 
         routeGroupBuiler.MapPost("/", AddAuthor)
            .WithName("AddAuthor")
+           .AddEndpointFilter<ValidatorFilter<AuthorEditModel>>()
            .Produces(201)
            .Produces(400)
            .Produces(409);
@@ -48,6 +50,7 @@ public static class AuthorEndpoints
 
         routeGroupBuiler.MapPut("/{id:int}", UpdateAuthor)
           .WithName("UpdateAuthor")
+          .AddEndpointFilter<ValidatorFilter<AuthorEditModel>>()
           .Produces(204)
           .Produces(400)
           .Produces(409);
@@ -125,18 +128,9 @@ public static class AuthorEndpoints
 
     private static async Task<IResult> AddAuthor(
         AuthorEditModel model,
-        IValidator<AuthorEditModel> validator,
         IAuthorRepository authorRepository,
         IMapper mapper)
     {
-        var validationResult = await validator.ValidateAsync(model);
-
-        if (!validationResult.IsValid) 
-        {
-            return Results.BadRequest(
-                validationResult.Errors.ToRespones());
-        }
-
         if (await authorRepository
                 .IsAuthorSlugExistedAsync(0, model.UrlSlug))
         {
@@ -172,18 +166,9 @@ public static class AuthorEndpoints
 
     private static async Task<IResult> UpdateAuthor(
         int id, AuthorEditModel model,
-        IValidator<AuthorEditModel> validator,
         IAuthorRepository authorRepository,
         IMapper mapper)
     {
-        var validationResult = await validator.ValidateAsync(model);
-
-        if (!validationResult.IsValid)
-        {
-            return Results.BadRequest(
-                validationResult.Errors.ToRespones());
-        }
-
         if (await authorRepository
                 .IsAuthorSlugExistedAsync(id, model.UrlSlug))
         {
