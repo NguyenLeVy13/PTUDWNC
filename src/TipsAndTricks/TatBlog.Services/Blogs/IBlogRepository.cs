@@ -53,9 +53,9 @@ public interface IBlogRepository
         PostQuery condition,
         IPagingParams pagingParams,
         Func<IQueryable<Post>, IQueryable<T>> mapper);
-
+/*
     Task<IList<AuthorItem>> GetAuthorsAsync(
-        CancellationToken cancellationToken = default);
+        CancellationToken cancellationToken = default);*/
     Task<IPagedList<Post>> GetPagedPostsAsync(
         PostQuery condition,
         int pageNumber = 1,
@@ -82,9 +82,9 @@ public interface IBlogRepository
         int postId, 
         CancellationToken cancellationToken = default);
 
-    Task<Author> GetAuthorSlugAsync(
+    /*Task<Author> GetAuthorSlugAsync(
           string slug,
-          CancellationToken cancellationToken = default);
+          CancellationToken cancellationToken = default);*/
 
     Task<Category> GetCategorySlugAsync(
        string slug,
