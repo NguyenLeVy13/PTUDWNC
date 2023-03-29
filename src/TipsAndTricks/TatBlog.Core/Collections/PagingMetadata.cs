@@ -31,7 +31,7 @@ public class PagingMetadata : IPagedList
 		set => PageIndex = value - 1;
 	}
 
-	public int PageCount
+	public int PagedCount
 	{
 		get
 		{
@@ -47,9 +47,8 @@ public class PagingMetadata : IPagedList
 		}
 	}
 
-	public bool HasPreviousPage => PageIndex > 0;
 
-	public bool HasNextPage => (PageIndex < (PageCount - 1));
+	public bool HasNextPage => (PageIndex < (PagedCount - 1));
 
 	public int FirstItemIndex => (PageIndex * PageSize) + 1;
 
@@ -58,5 +57,7 @@ public class PagingMetadata : IPagedList
 
 	public bool IsFirstPage => (PageIndex <= 0);
 
-	public bool IsLastPage => (PageIndex >= (PageCount - 1));
+	public bool IsLastPage => (PageIndex >= (PagedCount - 1));
+
+	public bool HasPreviosPage => PageIndex > 0;
 }

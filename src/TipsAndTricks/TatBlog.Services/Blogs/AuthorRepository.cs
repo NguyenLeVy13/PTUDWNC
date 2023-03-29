@@ -79,8 +79,7 @@ public class AuthorRepository : IAuthorRepository
 	{
 		return await _context.Set<Author>()
 			.AsNoTracking()
-			.WhereIf(!string.IsNullOrWhiteSpace(name), 
-				x => x.FullName.Contains(name))
+			.Where(x => x.FullName.Contains(name))
 			.Select(a => new AuthorItem()
 			{
 				Id = a.Id,
