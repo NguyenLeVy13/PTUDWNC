@@ -10,7 +10,7 @@ namespace TatBlog.Core.Entities
     // Biểu diễn một bài viết của blog
     public class Post : IEntity
     {
-         //Mã bài viết 
+        //Mã bài viết 
          public int Id { get; set; }
 
         // Tiêu đề bài viết

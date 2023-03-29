@@ -53,23 +53,45 @@ public interface IBlogRepository
         PostQuery condition,
         IPagingParams pagingParams,
         Func<IQueryable<Post>, IQueryable<T>> mapper);
-   Task<IList<AuthorItem>> GetAuthorsAsync(
-
-   CancellationToken cancellationToken = default);
+/*
+    Task<IList<AuthorItem>> GetAuthorsAsync(
+        CancellationToken cancellationToken = default);*/
     Task<IPagedList<Post>> GetPagedPostsAsync(
         PostQuery condition,
         int pageNumber = 1,
         int pageSize = 10,
         CancellationToken cancellationToken = default);
+
     Task<Post> GetPostByIdAsync(
         int postId, bool includeDetails = false,
         CancellationToken cancellationToken = default);
-    Task CreateOrUpdatePostAsync(Post post, IEnumerable<string> list, CancellationToken cancellationToken = default);
+
+    Task<Post> CreateOrUpdatePostAsync(
+        Post post, IEnumerable<string> tags,
+        CancellationToken cancellationToken = default);
+
     Task<Tag> GetTagAsync(
-        string slug, CancellationToken cancellationToken = default);
+        string slug, 
+        CancellationToken cancellationToken = default);
+
     Task<bool> TogglePublishedFlagAsync(
-        int postId, CancellationToken cancellationToken = default);
+        int postId, 
+        CancellationToken cancellationToken = default);
+    
     Task<bool> DeletePostAsync(
-        int postId, CancellationToken cancellationToken = default);
+        int postId, 
+        CancellationToken cancellationToken = default);
+
+    /*Task<Author> GetAuthorSlugAsync(
+          string slug,
+          CancellationToken cancellationToken = default);*/
+
+    Task<Category> GetCategorySlugAsync(
+       string slug,
+       CancellationToken cancellationToken = default);
+
+    Task<Tag> GetTagSlugAsync(
+       string slug,
+       CancellationToken cancellationToken = default);
 }
 
