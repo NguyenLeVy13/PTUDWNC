@@ -86,12 +86,39 @@ public interface IBlogRepository
           string slug,
           CancellationToken cancellationToken = default);*/
 
+    Task<Tag> GetTagSlugAsync(
+       string slug,
+       CancellationToken cancellationToken = default);
+
+    //Category API
+    Task<IPagedList<CategoryItem>> GetPagedCategoriesAsync(
+         IPagingParams pagingParams,
+         string name = null,
+         CancellationToken cancellationToken = default);
+
     Task<Category> GetCategorySlugAsync(
        string slug,
        CancellationToken cancellationToken = default);
 
-    Task<Tag> GetTagSlugAsync(
-       string slug,
-       CancellationToken cancellationToken = default);
+    Task<Category> GetCachedCategorySlugAsync(
+        string slug,
+        CancellationToken cancellationToken = default);
+
+    Task<Category> GetCategoryIdAsync(int categoryId);
+
+    Task<Category> GetCachedCategoryIdAsync(int categoryId);
+
+    Task<bool> AddOrUpdateAsync(
+        Category category,
+        CancellationToken cancellationToken = default);
+
+    Task<bool> DeleteCategoryAsync(
+        int categoryId,
+        CancellationToken cancellationToken = default);
+
+    Task<bool> IsCategorySlugExistedAsync(
+        int categoryId,
+        string slug,
+        CancellationToken cancellationToken = default);
 }
 

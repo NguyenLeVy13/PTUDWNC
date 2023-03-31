@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,14 @@ namespace TatBlog.Services.Blogs;
 public class BlogRepository : IBlogRepository
 {
     private readonly BlogDbContext _context;
+    private readonly IMemoryCache _memoryCache;
 
-    public BlogRepository(BlogDbContext context)
+    public BlogRepository(
+        BlogDbContext context,
+        IMemoryCache memoryCache)
     {
         _context = context;
+        _memoryCache = memoryCache;
     }
 
     //Tìm bài viết có tên định danh là 'slug'
@@ -329,15 +334,6 @@ public class BlogRepository : IBlogRepository
             .FirstOrDefaultAsync(cancellationToken);
     }*/
 
-    public async Task<Category> GetCategorySlugAsync(
-        string slug,
-        CancellationToken cancellationToken = default)
-    {
-        return await _context.Set<Category>()
-            .Where(t => t.UrlSlug == slug)
-            .FirstOrDefaultAsync(cancellationToken);
-    }
-
     public async Task<Tag> GetTagSlugAsync(
         string slug,
         CancellationToken cancellationToken = default)
@@ -380,5 +376,106 @@ public class BlogRepository : IBlogRepository
         
         return rowCount > 0;
     }
+
+    //Category API
+    public async Task<IPagedList<CategoryItem>> GetPagedCategoriesAsync(
+        IPagingParams pagingParams,
+        string name = null,
+        CancellationToken cancellationToken = default)
+    {
+
+        return await _context.Set<Category>()
+            .AsNoTracking()
+            .Where(x => x.Name.Contains(name))
+            .Select(x => new CategoryItem()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                UrlSlug = x.UrlSlug,
+                Description = x.Description,
+                ShowOnMenu = x.ShowOnMenu,
+                PostCount = x.Posts.Count(p => p.Published)
+            })
+            .ToPagedListAsync(pagingParams, cancellationToken);
+    }
+
+    public async Task<Category> GetCategorySlugAsync(
+        string slug,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Set<Category>()
+            .Where(t => t.UrlSlug == slug)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
+
+    public async Task<Category> GetCachedCategorySlugAsync(
+        string slug,
+        CancellationToken cancellationToken = default)
+    {
+        return await _memoryCache.GetOrCreateAsync(
+            $"category.by-slug.{slug}",
+            async (entry) =>
+            {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+                return await GetCategorySlugAsync(slug, cancellationToken);
+            });
+    }
+
+    public async Task<Category> GetCategoryIdAsync(int categoryId)
+    {
+        return await _context.Set<Category>().FindAsync(categoryId);
+    }
+
+    public async Task<Category> GetCachedCategoryIdAsync(int categoryId)
+    {
+        return await _memoryCache.GetOrCreateAsync(
+            $"category.by-id.{categoryId}",
+            async (entry) =>
+            {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+                return await GetCategoryIdAsync(categoryId);
+            });
+    }
+
+    public async Task<bool> AddOrUpdateAsync(
+        Category category,
+        CancellationToken cancellationToken = default)
+    {
+        if (category.Id > 0)
+        {
+            _context.Categories.Update(category);
+            _memoryCache.Remove($"category.by-id.{category.Id}");
+        }
+        else
+        {
+            _context.Categories.Add(category);
+        }
+
+        return await _context.SaveChangesAsync(cancellationToken) > 0;
+    }
+
+    public async Task<bool> DeleteCategoryAsync(
+        int categoryId, 
+        CancellationToken cancellationToken = default)
+    {
+        var category = await _context.Set<Category>().FindAsync(categoryId);
+
+        if (category is null) return false;
+
+        _context.Set<Category>().Remove(category);
+        var rowsCount = await _context.SaveChangesAsync(cancellationToken);
+
+        return rowsCount > 0;
+    }
+
+    public async Task<bool> IsCategorySlugExistedAsync(
+        int categoryId,
+        string slug,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Categories
+            .AnyAsync(x => x.Id != categoryId && x.UrlSlug == slug, cancellationToken);
+    }
 }
+
     
