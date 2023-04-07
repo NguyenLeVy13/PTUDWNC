@@ -1,14 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import PostItem from '../Components/PostItem';
 
 const Index = () => {
+    const [postList, setPostList] = useState([]);
+
     useEffect(() => {
         document.title = 'Trang chủ';
     }, []);
 
-    return (
-        <h1>
-            Đây là trang chủ
-        </h1>
+    if (postList.length > 0)
+        return (
+            <div className='p-4'>
+                {postList.map(item => {
+                    return (
+                        <PostItem postItem={item} />
+                    );
+                })};
+            </div>
+        );
+    else return (
+        <></>
     );
 }
 
