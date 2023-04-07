@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "F9vJnjSv118djPttYjolI9/7M18NcEnMd3uq2Xy8/5s=",
+  "Source": "TatBlog.WebApi",
+  "BasePath": "_content/TatBlog.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TatBlog.WebApi\\wwwroot",
+      "Source": "TatBlog.WebApi",
+      "ContentRoot": "C:\\Users\\LENOVO\\Desktop\\PTWNC\\2014509_Lab04_Practice\\src\\TipsAndTricks\\TatBlog.WebApi\\wwwroot\\",
+      "BasePath": "_content/TatBlog.WebApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

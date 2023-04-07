@@ -1,0 +1,15 @@
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.deps.json
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Data.pdb
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Core.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\bin\Debug\net7.0\TatBlog.Core.pdb
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\refint\TatBlog.Data.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\TatBlog.Data.pdb
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Data\obj\Debug\net7.0\ref\TatBlog.Data.dll
