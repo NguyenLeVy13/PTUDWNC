@@ -1,0 +1,17 @@
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Services.deps.json
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Services.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Services.pdb
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Core.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Data.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Core.pdb
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\bin\Debug\net7.0\TatBlog.Data.pdb
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\refint\TatBlog.Services.dll
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\TatBlog.Services.pdb
+C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.Services\obj\Debug\net7.0\ref\TatBlog.Services.dll

@@ -1,0 +1,129 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TatBlog.WebApp
+build_property.RootNamespace = TatBlog.WebApp
+build_property.ProjectDir = C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.WebApp\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\LENOVO\Desktop\PTWNC\2014509_Lab04_Practice\src\TipsAndTricks\TatBlog.WebApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Authors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXEF1dGhvcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXENhdGVnb3JpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Comments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXENvbW1lbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXERhc2hib2FyZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Posts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFBvc3RzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Posts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFBvc3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Posts/_PostFilterPane.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFBvc3RzXF9Qb3N0RmlsdGVyUGFuZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNoYXJlZFxfQWRtaW5MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Shared/_NavBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNoYXJlZFxfTmF2QmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Subscribers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFN1YnNjcmliZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/Tags/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFRhZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Areas/AdminArea/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Blog/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Blog/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Blog/Post.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xQb3N0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Blog/_Pager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xfUGFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Blog/_PostList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xfUG9zdExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Blog/_TagList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xfVGFnTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/Components/CategoriesWidget/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcmllc1dpZGdldFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/_SearchForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWFyY2hGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/_SiderBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlckJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/PTWNC/2014509_Lab04_Practice/src/TipsAndTricks/TatBlog.WebApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
